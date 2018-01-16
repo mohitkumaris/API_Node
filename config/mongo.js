@@ -15,7 +15,7 @@ var  mongoConnection  = (function () {
         return  true;
     }
     return {
-        Connect  : function () {
+        Connect  :  () => {
             if(connection== null) {
                 connection  =  InitiateConnection();
             }

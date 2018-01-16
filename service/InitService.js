@@ -24,7 +24,7 @@ var  Init  = (function () {
 
     return{
 
-        Start : function () {
+        Start :  () => {
             if(instance == null)
             {
                 instance  =    initializeObject();

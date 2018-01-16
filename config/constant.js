@@ -13,10 +13,10 @@ var  constant  = (function () {
     }
 
     return  {
-        Get  : function () {
+        Get  :  ()  => {
             if(constant == null)
             {
-                 constant  = new  setConstant();
+                 constant  =   setConstant();
 
             }
             return  constant;

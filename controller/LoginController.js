@@ -5,7 +5,7 @@ var  LoginController =  (function () {
 
     var controller  = {};
 
-    controller.Login  = function (req, res) {
+    controller.Login  =  (req, res) => {
 
         console.log("Login Controller");
         res.send(200);

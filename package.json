@@ -1,0 +1,19 @@
+{
+  "name": "eysightapi",
+  "version": "1.0.0",
+  "description": "written in  javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha test/*.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.9",
+    "nodemon": "^1.14.11"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  }
+}

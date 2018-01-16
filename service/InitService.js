@@ -19,7 +19,7 @@ var  Init  = (function () {
          app.listen(_constant.PORT,function () {
              console.log("Listening to  port " + _constant.PORT);
          })
-         return  true;
+         return  app;
     }
 
     return{
@@ -27,7 +27,7 @@ var  Init  = (function () {
         Start : function () {
             if(instance == null)
             {
-                instance  =  new  initializeObject();
+                instance  =    initializeObject();
             }
             return  instance;
         }

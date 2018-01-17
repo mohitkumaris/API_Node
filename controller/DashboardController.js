@@ -21,11 +21,7 @@ var  DashboardController  =  (function () {
             console.log(doc);
 
             res.sendStatus(200);
-        })
-
-
-
-        res.sendStatus(200);
+        });
 
     }
     return  controller;

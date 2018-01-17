@@ -1,20 +1,21 @@
 "Use Strict";
-const  mongoose  =  require('mongoose');
 
-var  dashboard = new mongoose.model('DashBoard',{
+const  mongoose  =  require('mongoose');
+const  Schema = mongoose.Schema;
+
+var  dashboard =  mongoose.model('DashBoard',{
 
     Database : {
-        type: string
+        type: String
     },
     DashBoardId : {
-        type  : string
+        type  : String
     },
-    DasbBoardTitle : {
-       type : string
+    DashBoardTitle : {
+       type : String
     },
-
     ScreenSuite : {
-        type : object
+        type : Object
     }
 
 });

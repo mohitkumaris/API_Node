@@ -8,10 +8,7 @@ var  mongoConnection  = (function () {
     var  connection;
 
     function  InitiateConnection() {
-        mongoose.connect(constant.MongoConnection,function (err,db) {
-            if(err)
-                return false;
-        });
+        mongoose.createConnection(constant.MongoConnection);
         return  true;
     }
     return {

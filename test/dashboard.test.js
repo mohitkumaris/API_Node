@@ -8,24 +8,24 @@ const   app  =  require('../service/InitService').Start();
 describe('Test for  Dashboard Model',()=>{
     describe('INSERTION',()=>{
 
-        it('Valid  insertion',  ()=>{
+        it('Valid  insertion',  (done)=>{
 
             request(app)
                 .post('/api/Dashboard')
                 .send({"DashBoardId" : "djfkdjklfjsd",
                     "DashBoardTitle" : "jsdljfkldsjflkjsdkfljldsk"})
-                .expect(400).expect((res)=>{
+                .expect(200).expect((res)=>{
 
                         console.log(res);
-            });
+            }).end(done);
 
 
         });
 
-        it('InValid  insertion', ()=>{
+        it('InValid  insertion', (done)=>{
 
              request(app).post('/api/Dashboard').send({"DashBoardId" : "",
-                "DashBoardTitle" : ""}).expect(200);
+                "DashBoardTitle" : ""}).expect(400).end(done);
 
         });
 

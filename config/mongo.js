@@ -10,6 +10,7 @@ var  mongoConnection  = (function () {
     function  InitiateConnection() {
         mongoose.connect(constant.MongoConnection);
         return  true;
+
     }
     return {
         Connect  :  () => {

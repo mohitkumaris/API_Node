@@ -4,6 +4,7 @@ var  route  = (function () {
     function  Routes() {
         return {
             "/Login" : require("../route/loginRoute"),
+            "/Dashboard" :  require("../route/dashboardRoute"),
 
 
         }

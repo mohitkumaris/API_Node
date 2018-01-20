@@ -5,8 +5,8 @@ var  constant  = (function () {
     function setConstant() {
 
         return {
-            PORT :  8089,
-            MongoConnection :  "mongodb://192.168.108.181:27017/products",
+            PORT :  process.env.PORT || 8089,
+            MongoConnection :  "mongodb://localhost:27017/products",
             BasePath : "/api"
 
         }

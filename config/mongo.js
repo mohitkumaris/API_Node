@@ -8,7 +8,11 @@ var  mongoConnection  = (function () {
     var  connection;
 
     function  InitiateConnection() {
-        mongoose.connect(constant.MongoConnection);
+        mongoose.connect(constant.MongoConnection,(err,db)=>{
+            if(err)
+                console.log("Error  connecting with Mongo");
+
+        });
         return  true;
 
     }

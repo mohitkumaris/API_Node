@@ -5,6 +5,25 @@ var  model  =  require('../models/DashboardModel');
 var  DashboardController  =  (function () {
 
     var controller = {};
+
+    controller.Get =  (req,res) =>{
+
+        var dashboardId  = req.params.dashboardId;
+
+        model.findOne({
+            DashBoardId :dashboardId
+        }).then((doc)=>{
+
+            res.send(doc);
+
+        }).catch((e)=>{
+
+            res.send(500);
+
+        })
+
+    }
+
     controller.Save = (req, res) => {
         var  modelToSave  =  new model({
             Database : req.body.Database,

@@ -11,8 +11,13 @@ var  LoginController =  (function () {
             email:  req.body.email,
             password: req.body.password
         }).then((doc)=>{
-            console.log(doc);
-            res.sendStatus(200);
+
+         return   doc.generateAuthecation()
+
+        }).then((token)=>{
+
+            res.header('x-auth',token.token).send(token.user);
+
         }).catch((e)=>{
             res.sendStatus(401);
         })
@@ -29,9 +34,6 @@ var  LoginController =  (function () {
 
 
         dataModel.save().then(()=>{
-          return  dataModel.generateAuthecation()
-        }).then((token)=>{
-
             res.send(dataModel);
 
         }).catch((e)=>{

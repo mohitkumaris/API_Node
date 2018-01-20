@@ -2,6 +2,7 @@
 const   mongoose  =  require('mongoose')
 const   validator  =  require('validator')
 const   _ = require('lodash');
+const   constant  = require('../config/constant').Get();
 const   jwt  =  require('jsonwebtoken');
 
 var schema  =  new mongoose.Schema({
@@ -52,12 +53,12 @@ schema.methods.toJSON =  function () {
 schema.methods.generateAuthecation  =  function () {
     var  _user  = this;
     var  access  =  'auth';
-    var token  = jwt.sign({ _id : _user._id.toHexString(),access : access},'abc@123!').toString();
+    var token  = jwt.sign({ _id : _user._id.toHexString(),access : access},constant.KEY).toString();
 
     _user.tokens.push({access:access,token:token});
 
     return _user.save().then(()=>{
-        return  token;
+        return  {token: token, user : _user};
     })
 
 }

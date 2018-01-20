@@ -7,8 +7,8 @@ var  constant  = (function () {
         return {
             PORT :  process.env.PORT || 8089,
             MongoConnection :  "mongodb://localhost:27017/products",
-            BasePath : "/api"
-
+            BasePath : "/api",
+            KEY : 'adcf%23%^2Df@123!@#'
         }
     }
 

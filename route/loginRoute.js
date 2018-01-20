@@ -5,7 +5,7 @@ var  loginController =  require('../controller/LoginController')
 
 var  app  = express.Router();
 
-app.route("/").post(loginController.Login);
-
+app.route("/Login").post(loginController.Login);
+app.route("/").post(loginController.Save);
 
 module.exports =  app;

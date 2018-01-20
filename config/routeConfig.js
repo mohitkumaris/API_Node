@@ -3,7 +3,7 @@ var  route  = (function () {
     var  route;
     function  Routes() {
         return {
-            "/Login" : require("../route/loginRoute"),
+            "/user" : require("../route/loginRoute"),
             "/Dashboard" :  require("../route/dashboardRoute"),
 
 

@@ -56,11 +56,8 @@ schema.methods.generateAuthecation  =  function () {
 
     _user.tokens.push({access:access,token:token});
 
-    console.log(_user);
     return _user.save().then(()=>{
-
         return  token;
-
     })
 
 }

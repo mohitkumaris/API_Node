@@ -5,20 +5,34 @@ const   model  =  require('../models/UserModel');
 var  LoginController =  (function () {
 
     var controller  = {};
-    controller.Login  =  (req, res) => {
+
+    controller.Login  = (req,res) => {
+        model.findOne({
+            email:  req.body.email,
+            password: req.body.password
+        }).then((doc)=>{
+            console.log(doc);
+            res.sendStatus(200);
+        }).catch((e)=>{
+            res.sendStatus(401);
+        })
+
+    }
+
+    controller.Save  =  (req, res) => {
         var  dataModel  =  new model({
             email :  req.body.email,
             password : req.body.password
 
         });
 
-        console.log('start')
-        console.log('start')
+
+
         dataModel.save().then(()=>{
           return  dataModel.generateAuthecation()
         }).then((token)=>{
-            console.log(token);
-            res.header('x-auth',token).send(dataModel);
+
+            res.send(dataModel);
 
         }).catch((e)=>{
             res.status(400).send(e)

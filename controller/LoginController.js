@@ -3,8 +3,20 @@
 const   model  =  require('../models/UserModel');
 
 var  LoginController =  (function () {
-
     var controller  = {};
+    controller.LogOut  = (req,res) => {
+
+
+        req.user.RemoveToken(req.token).then(()=>{
+
+               res.status(200).send();
+
+        },()=>{
+
+            res.status(400).send();
+        });
+
+    }
 
     controller.Login  = (req,res) => {
         model.findOne({

@@ -6,7 +6,10 @@ var authenticationService  =  require('../service/AuthenicationService');
 
 var  app  = express.Router();
 
-app.route('/Login').post(loginController.Login);
-app.route('/').post(loginController.Save);
+app.post('/',authenticationService.AuthenticateRequest,loginController.Save);
+app.post('/Logout',authenticationService.AuthenticateRequest,loginController.LogOut);
+app.post('/Login',loginController.Login);
+
+
 
 module.exports =  app;

@@ -6,11 +6,23 @@ var  AuthenticationService  =  (function () {
 
     var handler  = {};
 
-    handler.AuthenticateUser  = (req,res,next) => {
+    handler.AuthenticateRequest  = (req,res,next) => {
+
         var  token = req.header('x-auth');
 
-        userModel.FindByToken(token).then((token)=>{
-             console.log(token);
+        if(!token)
+        {
+
+            res.send(401);
+
+        }
+        userModel.FindByToken(token).then((user)=>{
+            if(!user)
+                return Promise.reject();
+
+            req.user =  user;
+            req.token  =  token;
+
              next();
 
         }).catch((e)=>{

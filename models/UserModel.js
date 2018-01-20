@@ -43,6 +43,20 @@ var schema  =  new mongoose.Schema({
 });
 
 
+schema.methods.RemoveToken  =  function (token) {
+
+    var  _user  =  this;
+
+    return  _user.update({
+         $pull : {
+            tokens : {
+                token : token
+            }
+        }
+    })
+
+}
+
 schema.statics.FindByToken =  function (token) {
 
     var  _user = this;
@@ -57,10 +71,10 @@ schema.statics.FindByToken =  function (token) {
     }
 
 
-    return _user.find({
-        '_id' : decode._id,
+    return _user.findOne({
+
         'tokens.access' : 'auth',
-        'tokens.token' :  decode.token
+            'tokens.token' :  token
 
     });
 

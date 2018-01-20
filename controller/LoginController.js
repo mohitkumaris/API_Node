@@ -11,13 +11,9 @@ var  LoginController =  (function () {
             email:  req.body.email,
             password: req.body.password
         }).then((doc)=>{
-
-         return   doc.generateAuthecation()
-
+            return   doc.generateAuthecation()
         }).then((token)=>{
-
             res.header('x-auth',token.token).send(token.user);
-
         }).catch((e)=>{
             res.sendStatus(401);
         })
